@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grupo8.SoySano.Views.EnrollmentMeasuresPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="¿Cúal es tu estatura (Cm.)?"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" FontSize="Large"/>
+            <Entry x:Name="txtHeight" Keyboard="Numeric" Placeholder="Cm."
+                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Header"></Entry>
+
+            <Label Text="¿Cúal es tu peso (Kg.)?"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" FontSize="Large"/>
+            <Entry x:Name="txtWeight" Keyboard="Numeric" Placeholder="Kg." 
+                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Header"></Entry>
+
+            <Button x:Name="btnContinue" Text="Empezar" BackgroundColor="LightGreen" BorderColor="Green" BorderWidth="1" TextColor="Black" VerticalOptions="Fill" Margin="0,0,0,10" CornerRadius="50" Clicked="btnContinue_Clicked"></Button>
+            <Button x:Name="btnBack" Text="Regresar" BackgroundColor="Transparent" BorderColor="Green" BorderWidth="1" TextColor="Black" VerticalOptions="Fill" Margin="0,0,0,10" CornerRadius="50" Clicked="btnBack_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

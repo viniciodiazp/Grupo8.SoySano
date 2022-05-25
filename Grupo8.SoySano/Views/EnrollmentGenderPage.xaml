@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grupo8.SoySano.Views.EnrollmentGenderPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Empecemos con tu género" 
+                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  FontSize="Large" />
+            <Button x:Name="btnMale" Text="Hombre" BackgroundColor="Transparent" BorderColor="Green" BorderWidth="1" TextColor="Black" VerticalOptions="Fill" Clicked="btnMale_Clicked" CornerRadius="50"></Button>
+            <Button x:Name="btnFemale" Text="Mujer" BackgroundColor="Transparent" BorderColor="Green" BorderWidth="1" TextColor="Black" VerticalOptions="Fill" Clicked="btnFemale_Clicked" CornerRadius="50"></Button>
+            <Button x:Name="btnOther" Text="Otro" BackgroundColor="Transparent" BorderColor="Green" BorderWidth="1" TextColor="Black" VerticalOptions="Fill" Clicked="btnOther_Clicked" Padding="0" Margin="0,0,0,10" CornerRadius="50"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

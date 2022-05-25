@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grupo8.SoySano.Views.ActivityDetailPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+
+                <Label x:Name="lblUsuario" Text="" HorizontalTextAlignment="End"/>
+
+                <Label x:Name="lbActivityName" 
+                       Text="" TextColor="Green"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       FontSize="Title" />
+
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Image x:Name="imgPhoto"
+                           Grid.Row="0"
+                           Grid.ColumnSpan="2"
+                           Aspect="AspectFill" />
+
+                    <Label Text="Fecha:"
+                           FontAttributes="Bold"
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           FontSize="Title"/>
+
+                    <Label x:Name="lbDate"
+                           FontSize="Title"
+                           Grid.Column="1"
+                           Grid.Row="1"/>
+
+                    <Label Text="Inicio:"
+                           FontAttributes="Bold"
+                           Grid.Column="0"
+                           Grid.Row="2"
+                           FontSize="Title"/>
+                    
+                    <Label x:Name="lbStartDate"
+                           FontSize="Title"
+                           Grid.Column="1"
+                           Grid.Row="2"/>
+
+                    <Label Text="Fin:"
+                           FontSize="Title"
+                           FontAttributes="Bold"
+                           Grid.Column="0"
+                           Grid.Row="3"/>
+                    
+                    <Label x:Name="lbFinishDate"
+                           FontSize="Title"
+                           Grid.Column="1"
+                           Grid.Row="3"/>
+
+                    <Label Text="Duración:"
+                           FontSize="Title"
+                           FontAttributes="Bold"
+                           Grid.Column="0"
+                           Grid.Row="4"/>
+                    
+                    <Label x:Name="lbDuration"
+                           FontSize="Title"
+                           Grid.Row="4"
+                           Grid.Column="1"
+                           VerticalOptions="End" />
+
+                    <Label Text="Calorías:"
+                           FontSize="Title"
+                           FontAttributes="Bold"
+                           Grid.Column="0"
+                           Grid.Row="5"/>
+
+                    <Label x:Name="lbCalories"
+                           FontSize="Title"
+                           Grid.Row="5"
+                           Grid.Column="1"
+                           VerticalOptions="End" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

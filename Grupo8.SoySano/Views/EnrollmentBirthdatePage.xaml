@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grupo8.SoySano.Views.EnrollmentBirthdatePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="¿Cúal es tu fecha de nacimiento?"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" FontSize="Large" />
+            <DatePicker x:Name="dtpBirthdate" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" Format="dd/MM/yyyy" Visual="Material" FontSize="Title" CharacterSpacing="2"></DatePicker>
+            <Button x:Name="btnContinue" Text="Continuar" BackgroundColor="Transparent" BorderColor="Green" BorderWidth="1" TextColor="Black" VerticalOptions="Fill" Clicked="btnContinue_Clicked" CornerRadius="50"></Button>
+            <Button x:Name="btnBack" Text="Regresar" BackgroundColor="Transparent" BorderColor="Green" BorderWidth="1" TextColor="Black" VerticalOptions="Fill" Clicked="btnBack_Clicked" Margin="0,0,0,10" CornerRadius="50"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

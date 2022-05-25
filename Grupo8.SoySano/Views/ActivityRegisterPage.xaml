@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grupo8.SoySano.Views.ActivityRegisterPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="lbDuration"
+                   Text="00:00:00"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="Header"
+                   TextColor="Black"/>
+
+            <Image x:Name="imgPhoto" BackgroundColor="#F0F0F0" HeightRequest="420" MinimumHeightRequest="250" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Image>
+
+            <Button x:Name="btnStart" Text="Iniciar" BackgroundColor="Transparent" BorderColor="Green" BorderWidth="1" TextColor="Black" VerticalOptions="Fill" Margin="3,0,3,1" CornerRadius="20" Clicked="btnStart_Clicked"></Button>
+            <Button x:Name="btnFinish" Text="Finalizar" BackgroundColor="Transparent" BorderColor="Green" BorderWidth="1" TextColor="Black" VerticalOptions="Fill" Margin="3,0,3,1" CornerRadius="20" Clicked="btnFinish_Clicked"></Button>
+            <Button x:Name="btnPhoto" Text="Foto" BackgroundColor="Transparent" BorderColor="Green" BorderWidth="1" TextColor="Black" VerticalOptions="Fill" Margin="3,0,3,1" CornerRadius="20" Clicked="btnPhoto_Clicked"></Button>
+            <Button x:Name="btnSave" Text="Guardar" BackgroundColor="Transparent" BorderColor="Green" BorderWidth="1" TextColor="Black" VerticalOptions="Fill" Margin="3,0,3,1" CornerRadius="20" Clicked="btnSave_Clicked"></Button>
+            <Button x:Name="btnDiscard" Text="Descartar" BackgroundColor="Transparent" BorderColor="Green" BorderWidth="1" TextColor="Black" VerticalOptions="Fill" Margin="3,0,3,2" CornerRadius="20" Clicked="btnDiscard_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
