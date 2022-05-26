@@ -22,7 +22,7 @@ namespace Grupo8.SoySano.Models
 		[JsonProperty("birthDate")]
 		public DateTime BirthDate { get; set; }
 
-		[JsonProperty("Height")]
+		[JsonProperty("height")]
 		public double Height { get; set; }
 
 		[JsonProperty("weight")]

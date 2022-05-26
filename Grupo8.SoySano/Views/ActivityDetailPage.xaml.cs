@@ -33,7 +33,7 @@ namespace Grupo8.SoySano.Views
             this.lbStartDate.Text = this.activity.StartDate.ToString("HH:mm:ss");
             this.lbFinishDate.Text = this.activity.FinishDate.ToString("HH:mm:ss");
             this.lbDuration.Text = this.activity.Duration;
-            this.lbCalories.Text = this.activity.Calories.ToString();
+            this.lbCalories.Text = string.Format("{0:0.00}", this.activity.Calories);
         }
     }
 }

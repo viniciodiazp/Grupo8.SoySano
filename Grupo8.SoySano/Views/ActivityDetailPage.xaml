@@ -22,6 +22,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -31,6 +32,8 @@
                     <Image x:Name="imgPhoto"
                            Grid.Row="0"
                            Grid.ColumnSpan="2"
+                           HeightRequest="300"
+                           MinimumHeightRequest="300"
                            Aspect="AspectFill" />
 
                     <Label Text="Fecha:"

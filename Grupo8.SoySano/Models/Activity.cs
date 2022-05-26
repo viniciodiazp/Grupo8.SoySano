@@ -30,16 +30,16 @@ namespace Grupo8.SoySano.Models
 			get
             {
 				TimeSpan diff = FinishDate.Subtract(StartDate);
-				return diff.ToString();
+
+				return diff.ToString(@"hh\:mm\:ss");
             }
         }
 		[JsonProperty("calories")]
 		public double Calories
 		{
 			get
-			{
-				double durationInMinutes = 1;
-				return 0.029 * User.Weight * durationInMinutes;
+			{				
+				return 0.029 * User.Weight * FinishDate.Subtract(StartDate).TotalMinutes;
 			}
 		}
 	}
