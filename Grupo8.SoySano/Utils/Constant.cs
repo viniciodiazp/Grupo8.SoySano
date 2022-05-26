@@ -18,5 +18,10 @@ namespace Grupo8.SoySano.Utils
             public static readonly string PUT = "PUT";
             public static readonly string DELETE = "DELETE";
         }
+
+        public class Messages
+        {
+            public static readonly string DISPLAY_TITLE = "Soy Sano";
+        }
     }
 }

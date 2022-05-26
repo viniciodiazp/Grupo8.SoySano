@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using Grupo8.SoySano.Models;
-using Xamarin.Essentials;
-using System.IO;
-using Plugin.Media;
-using Plugin.Media.Abstractions;
+﻿using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
-using Amazon.Runtime;
+using Grupo8.SoySano.Api;
+using Grupo8.SoySano.Models;
+using Grupo8.SoySano.Services;
+using Grupo8.SoySano.Utils;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
+using System;
+using Xamarin.Essentials;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Grupo8.SoySano.Views
 {
@@ -25,14 +22,17 @@ namespace Grupo8.SoySano.Views
         private TimeSpan elapsedTime;
         private bool continueTimer;
         private String photoPath;
+        private ActivityService service;
         public ActivityRegisterPage()
         {
             InitializeComponent();
+            this.service = new ActivityServiceRestImpl();
             this.btnStart.IsVisible = true;
             this.btnFinish.IsVisible = false;
             this.btnPhoto.IsVisible = false;
             this.btnSave.IsVisible = false;
             this.btnDiscard.IsVisible = false;
+            //this.txtName.IsVisible = false;
         }
 
         private void btnStart_Clicked(object sender, EventArgs e)
@@ -68,7 +68,33 @@ namespace Grupo8.SoySano.Views
         {
             Activity activity = BuildActivity();
 
-            
+            // Upload to S3
+            BasicAWSCredentials credentials = new BasicAWSCredentials("AKIA3LXSABKFDXQC26KY", "c57bCptJUocPd9Mox7Nb235Cx+qT+80PIMZcmxWT");
+
+            // Create a client
+            AmazonS3Client client = new AmazonS3Client(credentials, Amazon.RegionEndpoint.USEast1);
+
+            // Create a PutObject request
+            PutObjectRequest request = new PutObjectRequest
+            {
+                BucketName = string.Format("uisrael.grupo8/{0}", AppHelpers.CurrentUser.Id),
+                Key = string.Format("{0}.jpg", Guid.NewGuid().ToString()),
+                FilePath = this.photoPath
+            };
+
+            // Put object
+            PutObjectResponse response = await client.PutObjectAsync(request);
+
+            Console.WriteLine("HttpCodeStatus: " + response.HttpStatusCode);
+
+            if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+            {
+
+            } 
+            else
+            {
+                DisplayAlert(Constant.Messages.DISPLAY_TITLE, "No se cargó la foto al almacén", "Aceptar");
+            }
 
         }
 
@@ -84,19 +110,7 @@ namespace Grupo8.SoySano.Views
             this.btnDiscard.IsVisible = false;
             this.lbDuration.Text = "00:00:00";
             this.imgPhoto.Source = null;
-        }
-
-       
-
-        private Activity BuildActivity()
-        {
-            Activity activity = new Activity();
-            activity.Id = 0;
-            activity.User = AppHelpers.CurrentUser;
-            activity.StartDate = this.startDate;
-            activity.FinishDate = this.finishDate;
-
-            return activity;
+            this.txtName.IsVisible = false;
         }
 
         private async void btnPhoto_Clicked(object sender, EventArgs e)
@@ -131,38 +145,21 @@ namespace Grupo8.SoySano.Views
                 }
 
                 //await DisplayAlert("SoySano", "Foto guardada: " + file.Path, "Aceptar");
-                string filePath = file.Path;
+                this.photoPath = file.Path;
                 imgPhoto.Source = ImageSource.FromStream(() => {
                     var stream = file.GetStream();
                     file.Dispose();
                     return stream;
                 });
 
-                BasicAWSCredentials credentials = new BasicAWSCredentials("AKIA3LXSABKFDXQC26KY", "c57bCptJUocPd9Mox7Nb235Cx+qT+80PIMZcmxWT");
-
-                // Create a client
-                AmazonS3Client client = new AmazonS3Client(credentials, Amazon.RegionEndpoint.USEast1);
-
-                // Create a PutObject request
-                PutObjectRequest request = new PutObjectRequest
-                {
-                    BucketName = string.Format("uisrael.grupo8/{0}", AppHelpers.CurrentUser.Id),
-                    Key = string.Format("{0}.jpg", Guid.NewGuid().ToString()),
-                    FilePath = filePath
-                };
-
-                // Put object
-                PutObjectResponse response = await client.PutObjectAsync(request);
-
-                Console.WriteLine("HTTPCODEStatus: " + response.HttpStatusCode);
+                Console.WriteLine($"CapturePhotoAsync COMPLETED: {photoPath}");
 
                 this.btnStart.IsVisible = false;
                 this.btnFinish.IsVisible = false;
                 this.btnPhoto.IsVisible = false;
                 this.btnSave.IsVisible = true;
                 this.btnDiscard.IsVisible = true;
-
-                Console.WriteLine($"CapturePhotoAsync COMPLETED: {photoPath}");
+                this.txtName.IsVisible = true;
             }
             catch (FeatureNotSupportedException exception)
             {
@@ -179,6 +176,16 @@ namespace Grupo8.SoySano.Views
                 Console.WriteLine("ERROR: " + exception.Message);
                 DisplayAlert("SoySano", "Error al capturar foto", "Aceptar");
             }
+        }
+
+        private Activity BuildActivity()
+        {
+            Activity activity = new Activity();
+            activity.Id = 0;
+            activity.User = AppHelpers.CurrentUser;
+            activity.StartDate = this.startDate;
+            activity.FinishDate = this.finishDate;
+            return activity;
         }
     }
 }
