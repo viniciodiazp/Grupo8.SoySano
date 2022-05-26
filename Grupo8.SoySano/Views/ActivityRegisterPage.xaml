@@ -11,7 +11,8 @@
                    TextColor="Black"/>
 
             <Image x:Name="imgPhoto" BackgroundColor="#F0F0F0" HeightRequest="420" MinimumHeightRequest="250" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Image>
-
+            <Entry x:Name="txtName" Placeholder="Ingresa un nombre para tu actividad"  Keyboard="Default"></Entry>
+            
             <Button x:Name="btnStart" Text="Iniciar" BackgroundColor="Transparent" BorderColor="Green" BorderWidth="1" TextColor="Black" VerticalOptions="Fill" Margin="3,0,3,1" CornerRadius="20" Clicked="btnStart_Clicked"></Button>
             <Button x:Name="btnFinish" Text="Finalizar" BackgroundColor="Transparent" BorderColor="Green" BorderWidth="1" TextColor="Black" VerticalOptions="Fill" Margin="3,0,3,1" CornerRadius="20" Clicked="btnFinish_Clicked"></Button>
             <Button x:Name="btnPhoto" Text="Foto" BackgroundColor="Transparent" BorderColor="Green" BorderWidth="1" TextColor="Black" VerticalOptions="Fill" Margin="3,0,3,1" CornerRadius="20" Clicked="btnPhoto_Clicked"></Button>

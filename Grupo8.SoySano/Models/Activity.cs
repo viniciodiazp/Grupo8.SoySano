@@ -33,5 +33,14 @@ namespace Grupo8.SoySano.Models
 				return diff.ToString();
             }
         }
+		[JsonProperty("calories")]
+		public double Calories
+		{
+			get
+			{
+				double durationInMinutes = 1;
+				return 0.029 * User.Weight * durationInMinutes;
+			}
+		}
 	}
 }
