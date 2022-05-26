@@ -8,7 +8,7 @@
 
                 <Label x:Name="lblUsuario" Text="" HorizontalTextAlignment="End"/>
 
-                <Label Text="Mis Actividades" TextColor="Green"
+                <Label x:Name="lbTitle" Text="Mis Actividades" TextColor="Green"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Title" />
 
@@ -19,24 +19,29 @@
                                 <Grid Padding="10">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Grid.RowSpan="2"
+                                    <Image Grid.RowSpan="3"
                                            Source="{Binding Photo}"
                                            Aspect="AspectFill"
-                                           HeightRequest="60"
-                                           WidthRequest="60" />
+                                           HeightRequest="70"
+                                           WidthRequest="70" />
 
                                     <Label Grid.Column="1"
                                            Grid.Row="0"
                                            Text="{Binding Name}"
                                            FontAttributes="Bold"/>
 
-                                    <Label Grid.Row="1"
+                                    <Label Grid.Column="1"
+                                           Grid.Row="1"
+                                           Text="{Binding StartDate, StringFormat='{0:dd/MM/yyyy HH:mm:ss}'}"/>
+
+                                    <Label Grid.Row="2"
                                            Grid.Column="1"
                                            Text="{Binding Duration}"
                                            VerticalOptions="End" />

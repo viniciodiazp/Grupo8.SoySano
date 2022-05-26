@@ -34,6 +34,9 @@
                     VerticalOptions="Center"
                     Clicked="btnGoogleLoginAlternate_Clicked"/>
 
+            <Entry x:Name="txtUserName" Placeholder="Nombre" Keyboard="Text"></Entry>
+            <Entry x:Name="txtEmail" Placeholder="Email" Keyboard="Email"></Entry>
+
             <Button x:Name="btnExistingUser"
                     TextColor="Black"
                     BackgroundColor="Transparent"
@@ -44,6 +47,10 @@
                     VerticalOptions="Center"
                     Clicked="btnExistingUser_Clicked"/>
 
+            <Entry x:Name="txtUserId" Placeholder="Id" Keyboard="Numeric"></Entry>
+            
+            <CheckBox x:Name="chkAlternate" IsChecked="False" CheckedChanged="chkAlternate_CheckedChanged" HorizontalOptions="End"></CheckBox>
+            
             <Label x:Name="lbAccountInfo" Text="No connected"
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="Center" IsVisible="False" />

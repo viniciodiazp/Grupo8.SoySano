@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.uisrael.grupo8.soysano">
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
-    <application android:label="Grupo8.SoySano.Android" android:theme="@style/MainTheme" android:name="Android.support.multidex.MultiDexApplication">
+    <application android:label="Grupo8.SoySano.Android" android:theme="@style/MainTheme">
 		<provider android:name="android.support.v4.content.FileProvider"
 				android:authorities="${applicationId}.fileprovider"
 				android:exported="false"
@@ -10,7 +10,6 @@
 				android:resource="@xml/file_paths"></meta-data>
 		</provider>
 	</application>
-	<application ></application>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />

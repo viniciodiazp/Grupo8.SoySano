@@ -30,8 +30,17 @@ namespace Grupo8.SoySano.Views
         private void LoadActivities()
         {
             List<Activity> activities = this.service.GetAll(AppHelpers.CurrentUser);
-            ObservableCollection<Activity> data = new ObservableCollection<Activity>(activities);
-            this.lstActivities.ItemsSource = data;
+            if (activities == null)
+            {
+                this.lbTitle.Text = "Sin Actividades";
+                this.lstActivities.ItemsSource = null;
+            }
+            else
+            {
+                this.lbTitle.Text = "Mis Actividades";
+                ObservableCollection<Activity> data = new ObservableCollection<Activity>(activities);
+                this.lstActivities.ItemsSource = data;
+            }
         }
 
         private async void lstActivities_ItemSelected(object sender, SelectedItemChangedEventArgs e)

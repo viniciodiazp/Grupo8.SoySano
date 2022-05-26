@@ -24,9 +24,9 @@ namespace Grupo8.SoySano.Views
             await Shell.Current.GoToAsync(nameof(EnrollmentMeasuresPage));
         }
 
-        private void btnBack_Clicked(object sender, EventArgs e)
+        private async void btnBack_Clicked(object sender, EventArgs e)
         {
-
+            await Shell.Current.GoToAsync(nameof(EnrollmentGenderPage));
         }
     }
 }
