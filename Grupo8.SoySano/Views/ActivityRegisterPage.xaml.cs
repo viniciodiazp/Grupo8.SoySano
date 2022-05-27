@@ -137,8 +137,8 @@ namespace Grupo8.SoySano.Views
                 txtName.Focus();
                 return;
             }
-            // Upload to S3
-            BasicAWSCredentials credentials = new BasicAWSCredentials("AKIA3LXSABKFDXQC26KY", "c57bCptJUocPd9Mox7Nb235Cx+qT+80PIMZcmxWT");
+            // Upload to S3, no se sube al repositorio público las credenciales.
+            BasicAWSCredentials credentials = new BasicAWSCredentials("<a>", "<s>");
 
             // Create a client
             AmazonS3Client client = new AmazonS3Client(credentials, Amazon.RegionEndpoint.USEast1);
